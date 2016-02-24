@@ -1,0 +1,21 @@
+--- zimg-3.1.0/src/CMakeLists.txt.orig	2014-09-08 17:29:15.000000000 +0200
++++ zimg-3.1.0/src/CMakeLists.txt	2016-02-23 16:52:13.753332122 +0100
+@@ -82,8 +82,8 @@
+ set (DEPS_SOURCE_DIR "${PROJECT_SOURCE_DIR}/../deps")
+ include_directories(${DEPS_SOURCE_DIR})
+ 
+-set (LUAJIT_INCLUDE_DIR ${DEPS_SOURCE_DIR}/LuaJIT-2.0.3/src)
+-set (LUAJIT_LIBRARIES ${DEPS_SOURCE_DIR}/LuaJIT-2.0.3/src/libluajit.a)
++set (LUAJIT_INCLUDE_DIR "/usr/include/luajit-2.0" CACHE STRING "Lua include dir")
++set (LUAJIT_LIBRARIES "luajit-5.1" CACHE STRING "Lua library")
+ 
+ #set (ImageMagick_INCLUDE_DIRS "/Users/zippo/develop/linuxc/imagemagick-src")
+ #set (ImageMagick_MagickCore_LIBRARY "/Users/zippo/develop/linuxc/imagemagick-src/magick/.libs/libMagickCore-Q16.a")
+@@ -149,7 +149,6 @@
+ message("Build Type: ${CMAKE_BUILD_TYPE}")
+ message("Std CFLAGS: ${CMAKE_C_FLAGS}")
+ 
+-link_directories("/usr/lib" "/usr/local/lib")
+ add_executable(zimg ${SOURCES})
+ target_link_libraries(zimg ${ZIMG_EXTERNAL_LIBS})
+ 
