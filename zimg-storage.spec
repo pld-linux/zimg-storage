@@ -42,7 +42,7 @@ Obsługuje wiele opcji do przechowywania i przetwarzania obrazów.
 
 %prep
 %setup -q -n zimg-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 install -d build
